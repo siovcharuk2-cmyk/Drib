@@ -10,9 +10,21 @@ private:
 	void simplify();
 
 public:
+	Drib()
+	{
+		num = 0;
+		den = 1;
+	}
+
+	Drib(int newNum, int newDen)
+	{
+		num = newNum;
+		den = newDen;
+	}
+
 	void input();
-	void setNum(int newNum);
-	void setDen(int newDen);
+	void setNum(int newNum) { num = newNum; }
+	void setDen(int newDen) { newDen == 0 ? den = 1 : den = newDen; }
 
 	void print();
 
@@ -21,4 +33,3 @@ public:
 	void mult(Drib other);
 	void div(Drib other);
 };
-

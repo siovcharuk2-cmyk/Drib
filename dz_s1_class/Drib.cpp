@@ -48,9 +48,6 @@ void Drib::input()
     simplify();
 }
 
-void Drib::setNum(int newNum) { num = newNum; }
-void Drib::setDen(int newDen) { newDen == 0 ? den = 1 : den = newDen; }
-
 void Drib::print()
 {
     std::cout << num << '\n';
