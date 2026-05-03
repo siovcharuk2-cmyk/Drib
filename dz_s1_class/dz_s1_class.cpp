@@ -27,10 +27,12 @@ int main()
         std::cin >> choice;
         
         if (choice < 0 || choice>4) { std::cout << "Unknown option!"; continue; }
-        if (choice == 0) exit(0);
+        if (choice == 0) break;
 
         drib2.input();
         (drib1.*option[choice - 1])(drib2);
         drib1.print();
     }
+
+    std::cout << "Number of created Dribs: " << Drib::getObjCount() << std::endl;
 }

@@ -3,6 +3,8 @@
 class Drib
 {
 private:
+	static int objCount;
+
 	int num,
 		den;
 
@@ -10,17 +12,14 @@ private:
 	void simplify();
 
 public:
-	Drib()
+	Drib(int newNum, int newDen)
+		: num{ newNum },
+		den{ newDen }
 	{
-		num = 0;
-		den = 1;
+		objCount++;
 	}
 
-	Drib(int newNum, int newDen)
-	{
-		num = newNum;
-		den = newDen;
-	}
+	Drib() : Drib{ 0, 1 } {}
 
 	void input();
 	void setNum(int newNum) { num = newNum; }
@@ -32,4 +31,6 @@ public:
 	void minus(Drib other);
 	void mult(Drib other);
 	void div(Drib other);
+
+	static int getObjCount();
 };

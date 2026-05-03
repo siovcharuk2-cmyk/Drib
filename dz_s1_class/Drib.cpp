@@ -1,6 +1,8 @@
 #include "Drib.h"
 #include <iostream>
 
+int Drib::objCount = 0;
+
 int Drib::gcd()
 {
     int a = num,
@@ -101,3 +103,6 @@ void Drib::div(Drib other)
     den = den * other.num;
     simplify();
 }
+
+
+int Drib::getObjCount() { return objCount; }
