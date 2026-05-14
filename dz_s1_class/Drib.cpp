@@ -14,12 +14,8 @@ int Drib::gcd()
     while (b != 0)
     {
         a %= b;
-
-        int temp = a;
-        a = b;
-        b = temp;
+        std::swap(a, b);
     }
-
     return a;
 }
 
@@ -76,33 +72,43 @@ void Drib::print()
     std::cout << den << '\n';
 }
 
-void Drib::sum(Drib other)
-{
-    num = num * other.den + other.num * den;
-    den = den * other.den;
-    simplify();
-}
-
-void Drib::minus(Drib other)
-{
-    num = num * other.den - other.num * den;
-    den = den * other.den;
-    simplify();
-}
-
-void Drib::mult(Drib other)
-{
-    num = num * other.num;
-    den = den * other.den;
-    simplify();
-}
-
-void Drib::div(Drib other)
-{
-    num = num * other.den;
-    den = den * other.num;
-    simplify();
-}
-
 
 int Drib::getObjCount() { return objCount; }
+
+
+// ====== Operators ======
+Drib Drib::operator+(Drib other)
+{
+    Drib temp;
+    temp.num = num * other.den + other.num * den;
+    temp.den = den * other.den;
+    temp.simplify();
+    return temp;
+}
+
+Drib Drib::operator-(Drib other)
+{
+    Drib temp;
+    temp.num = num * other.den - other.num * den;
+    temp.den = den * other.den;
+    temp.simplify();
+    return temp;
+}
+
+Drib Drib::operator*(Drib other)
+{
+    Drib temp;
+    temp.num = num * other.num;
+    temp.den = den * other.den;
+    temp.simplify();
+    return temp;
+}
+
+Drib Drib::operator/(Drib other)
+{
+    Drib temp;
+    temp.num = num * other.den;
+    temp.den = den * other.num;
+    temp.simplify();
+    return temp;
+}

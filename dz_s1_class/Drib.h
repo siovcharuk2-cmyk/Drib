@@ -27,10 +27,12 @@ public:
 
 	void print();
 
-	void sum(Drib other);
-	void minus(Drib other);
-	void mult(Drib other);
-	void div(Drib other);
-
 	static int getObjCount();
+
+
+	// operators
+	Drib operator+(Drib other);
+	Drib operator-(Drib other);
+	Drib operator*(Drib other);
+	Drib operator/(Drib other);
 };

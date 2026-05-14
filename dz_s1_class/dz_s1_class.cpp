@@ -6,13 +6,6 @@ int main()
     Drib drib1;
     Drib drib2;
     short choice;
-    void (Drib:: * option[4])(Drib) =
-    {
-        &Drib::sum,
-        &Drib::minus,
-        &Drib::mult,
-        &Drib::div
-    };
     
     drib1.input();
     
@@ -26,11 +19,24 @@ int main()
             << "0. Exit\n";
         std::cin >> choice;
         
-        if (choice < 0 || choice>4) { std::cout << "Unknown option!"; continue; }
         if (choice == 0) break;
 
         drib2.input();
-        (drib1.*option[choice - 1])(drib2);
+        switch (choice)
+        {
+        case 1:
+            drib1 = drib1 + drib2;
+            break;
+        case 2:
+            drib1 = drib1 - drib2;
+            break;
+        case 3:
+            drib1 = drib1 * drib2;
+            break;
+        case 4:
+            drib1 = drib1 / drib2;
+            break;
+        }
         drib1.print();
     }
 
